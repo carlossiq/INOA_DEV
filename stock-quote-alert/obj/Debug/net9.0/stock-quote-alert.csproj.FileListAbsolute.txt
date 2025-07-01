@@ -1,3 +1,4 @@
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\Templates\EmailTemplate.html
 C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\stock-quote-alert.exe
 C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\stock-quote-alert.deps.json
 C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\stock-quote-alert.runtimeconfig.json

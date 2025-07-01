@@ -1,4 +1,3 @@
-//Class responsible for sending emails using SMTP
 using System;
 using System.Net;
 using System.Net.Mail;
@@ -24,26 +23,8 @@ namespace StockQuoteAlert.Services
                 EnableSsl = true
             };
 
-            string subject = Language.Get("EmailAlertSubject", action, symbol);
-            string priceStr = price.ToString("F2", CultureInfo.InvariantCulture);
-            string color = action.ToUpper() == "BUY" ? "green" : "red";
-            string date = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-
-            string bodyHtml = $@"
-        <html>
-          <body style='font-family: Arial, sans-serif; line-height: 1.5;'>
-            <h2 style='color: #007bff;'>📈 {Language.Get("EmailAlertSubject", action, symbol)}</h2>
-            <p>
-              <strong>{Language.Get("CurrentPrice", symbol, priceStr)}</strong><br>
-              <strong>{Language.Get("ActionRecommendation", $"<span style='color:{color}'>{action.ToUpper()}</span>")}</strong><br>
-              <strong>Data:</strong> {date}
-            </p>
-            <hr>
-            <p style='font-size: 0.9em; color: #666;'>
-              {Language.Get("EmailFooter")}
-            </p>
-          </body>
-        </html>";
+            string subject = Language.Get("EmailAlertSubject", symbol);
+            string body = EmailTemplate.LoadTemplate(symbol, price.ToString("F2", CultureInfo.InvariantCulture), action.ToString());
 
             try
             {
@@ -53,8 +34,10 @@ namespace StockQuoteAlert.Services
                     {
                         From = new MailAddress(config.Smtp.Email),
                         Subject = subject,
-                        Body = bodyHtml,
-                        IsBodyHtml = true
+                        Body = body,
+                        IsBodyHtml = true,
+                        BodyEncoding = System.Text.Encoding.UTF8,
+                        SubjectEncoding = System.Text.Encoding.UTF8
                     };
 
                     mail.To.Add(recipient);
@@ -68,6 +51,5 @@ namespace StockQuoteAlert.Services
                 Console.WriteLine(Language.Get("EmailSendError") + $" {ex.Message}");
             }
         }
-
     }
 }

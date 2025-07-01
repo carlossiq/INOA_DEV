@@ -66,12 +66,12 @@ namespace StockQuoteAlert
             if (currentPrice > sellPrice)
             {
                 Console.WriteLine(Language.Get("PriceAbove"));
-                EmailService.SendAlert(config, symbol, currentPrice.Value, "SELL");
+                EmailService.SendAlert(config, symbol, currentPrice.Value, Language.Get("PriceAbove"));
             }
             else if (currentPrice < buyPrice)
             {
                 Console.WriteLine(Language.Get("PriceBelow"));
-                EmailService.SendAlert(config, symbol, currentPrice.Value, "BUY");
+                EmailService.SendAlert(config, symbol, currentPrice.Value, Language.Get("PriceBelow"));
             }
             else
             {
