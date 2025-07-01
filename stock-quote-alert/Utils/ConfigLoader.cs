@@ -19,7 +19,7 @@ namespace StockQuoteAlert.Utils
             Config config = JsonSerializer.Deserialize<Config>(configJson, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
-            });
+            })!;
 
             if (config == null)
                 throw new Exception("Failed to deserialize the configuration file.");
