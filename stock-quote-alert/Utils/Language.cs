@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+
+namespace StockQuoteAlert.Utils
+{
+    public static class Language
+    {
+        // Idioma atual: "pt" ou "en"
+        private static string CurrentLanguage { get; set; } = "en";
+
+        private static readonly Dictionary<string, (string pt, string en)> messages = new()
+        {
+            ["Usage"] = (
+                "Uso: StockQuoteAlert.exe <ativo> <precoVenda> <precoCompra>",
+                "Usage: StockQuoteAlert.exe <symbol> <sellPrice> <buyPrice>"
+            ),
+            ["InvalidSellPrice"] = (
+                "Preço de venda inválido.",
+                "Invalid sell price."
+            ),
+            ["InvalidBuyPrice"] = (
+                "Preço de compra inválido.",
+                "Invalid buy price."
+            ),
+            ["LoadingConfigError"] = (
+                "Erro ao carregar o arquivo de configuração:",
+                "Error loading configuration:"
+            ),
+            ["FailedToGetPrice"] = (
+                "Falha ao obter o preço atual.",
+                "Failed to retrieve current price."
+            ),
+            ["PriceAbove"] = (
+                "Preço acima do limite de venda. Recomendado: VENDER.",
+                "Price above sell limit. Recommended: SELL."
+            ),
+            ["PriceBelow"] = (
+                "Preço abaixo do limite de compra. Recomendado: COMPRAR.",
+                "Price below buy limit. Recommended: BUY."
+            ),
+            ["PriceHold"] = (
+                "Preço dentro da faixa de segurança. Nenhuma ação recomendada.",
+                "Price is within hold range. No action required."
+            ),
+            ["CurrentPrice"] = (
+                "Preço atual de {0}: R${1}",
+                "Current price for {0}: {1:C2}"
+            )
+        };
+
+        public static string Get(string key, params object[] args)
+        {
+            if (!messages.ContainsKey(key))
+                return $"[Mensagem não encontrada: {key}]";
+
+            var (pt, en) = messages[key];
+            string selected = CurrentLanguage == "pt" ? pt : en;
+            return string.Format(selected, args);
+        }
+
+        public static void Set(string? lang)
+        {
+            if (!string.IsNullOrWhiteSpace(lang) && IsSupported(lang.ToLower()))
+                CurrentLanguage = lang.ToLower();
+            else
+                CurrentLanguage = "en";
+        }
+
+        public static bool IsSupported(string lang)
+        {
+            return lang == "pt" || lang == "en";
+        }
+
+        public static string GetCurrentLanguage()
+        {
+            return CurrentLanguage;
+        }
+    }
+}

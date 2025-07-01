@@ -1,0 +1,14 @@
+{
+  "smtp": {
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "email": "youremail@gmail.com",
+    "password": "YOUR_APP_PASSWORD_HERE"
+  },
+  "recipients": [
+    "exemplo1@email.com",
+    "exemplo2@email.com"
+  ],
+  "twelveDataApiKey": "YOUR_KEY_HERE",
+  "language": "en"
+}

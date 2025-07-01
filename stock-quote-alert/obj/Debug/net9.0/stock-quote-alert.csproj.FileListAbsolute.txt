@@ -1,0 +1,15 @@
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\stock-quote-alert.exe
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\stock-quote-alert.deps.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\stock-quote-alert.runtimeconfig.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\stock-quote-alert.dll
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Debug\net9.0\stock-quote-alert.pdb
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\stock-quote-alert.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\stock-quote-alert.AssemblyInfoInputs.cache
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\stock-quote-alert.AssemblyInfo.cs
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\stock-quote-alert.csproj.CoreCompileInputs.cache
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\stock-quote-alert.sourcelink.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\stock-quote-alert.dll
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\refint\stock-quote-alert.dll
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\stock-quote-alert.pdb
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\stock-quote-alert.genruntimeconfig.cache
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Debug\net9.0\ref\stock-quote-alert.dll
