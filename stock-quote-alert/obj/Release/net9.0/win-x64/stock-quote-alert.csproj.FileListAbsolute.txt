@@ -1,0 +1,17 @@
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\Templates\EmailTemplate.html
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\stock-quote-alert.exe
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\stock-quote-alert.deps.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\stock-quote-alert.runtimeconfig.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\stock-quote-alert.dll
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\stock-quote-alert.pdb
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\stock-quote-alert.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\stock-quote-alert.AssemblyInfoInputs.cache
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\stock-quote-alert.AssemblyInfo.cs
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\stock-quote-alert.csproj.CoreCompileInputs.cache
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\stock-quote-alert.sourcelink.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\stock-quote-alert.dll
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\refint\stock-quote-alert.dll
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\stock-quote-alert.pdb
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\stock-quote-alert.genruntimeconfig.cache
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\obj\Release\net9.0\win-x64\ref\stock-quote-alert.dll
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\config.json

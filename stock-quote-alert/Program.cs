@@ -24,7 +24,7 @@ namespace StockQuoteAlert
                 Console.WriteLine($"{Language.Get("LoadingConfigError")} {ex.Message}");
                 return;
             }
-            
+
             // Check if the correct number of arguments is provided
             if (args.Length != 3)
             {
@@ -47,35 +47,63 @@ namespace StockQuoteAlert
                 return;
             }
 
-            if (string.IsNullOrEmpty(config.TwelveDataApiKey))
-            {
-                Console.WriteLine(Language.Get("MissingApiKey"));
-                return;
-            }
+            Console.WriteLine(Language.Get("StartingMonitoring", symbol, sellPrice.ToString("F2", CultureInfo.InvariantCulture), buyPrice.ToString("F2", CultureInfo.InvariantCulture)));
 
-            double? currentPrice = await AtivoService.GetCurrentPrice(symbol, config.TwelveDataApiKey);
-            if (currentPrice == null)
-            {
-                Console.WriteLine(Language.Get("FailedToGetPrice"));
-                return;
-            }
+            int baseDelay = 60;
+            int backoffDelay = baseDelay;
+            string? lastAction = "hold";
 
-            Console.WriteLine(Language.Get("CurrentPrice", symbol, currentPrice.Value.ToString("F2", CultureInfo.InvariantCulture)));
+            while (true)
+            {
+                Console.WriteLine(Language.Get("Verifying"));
+                double? currentPrice = await AtivoService.GetCurrentPrice(symbol, config.BrapiToken ?? "");
+                if (currentPrice == null)
+                {
+                    Console.WriteLine(Language.Get("FailedToGetPrice"));
+                    backoffDelay *= 2;
+                    if (backoffDelay > 600) backoffDelay = 600;
+                    return;
+                }
+                else
+                {
+                    backoffDelay = baseDelay;
+                    Console.WriteLine(Language.Get("CurrentPrice", currentPrice.Value.ToString("F2", CultureInfo.InvariantCulture)));
 
-            // Logic of recommendation
-            if (currentPrice > sellPrice)
-            {
-                Console.WriteLine(Language.Get("PriceAbove"));
-                EmailService.SendAlert(config, symbol, currentPrice.Value, Language.Get("PriceAbove"));
-            }
-            else if (currentPrice < buyPrice)
-            {
-                Console.WriteLine(Language.Get("PriceBelow"));
-                EmailService.SendAlert(config, symbol, currentPrice.Value, Language.Get("PriceBelow"));
-            }
-            else
-            {
-                Console.WriteLine(Language.Get("PriceHold"));
+                    string newAction;
+                    // Logic of recommendation
+                    if (currentPrice > sellPrice)
+                    {
+                        newAction = "sell";
+                        if (newAction != lastAction)
+                        {
+                            lastAction = newAction;
+                            Console.WriteLine(Language.Get("PriceAbove"));
+                            EmailService.SendAlert(config, symbol, currentPrice.Value, Language.Get("PriceAbove"));
+                        }
+                    }
+                        else if (currentPrice < buyPrice)
+                        {
+                            newAction = "buy";
+                            if (newAction != lastAction)
+                            {
+                                lastAction = newAction;
+                                Console.WriteLine(Language.Get("PriceBelow"));
+                                EmailService.SendAlert(config, symbol, currentPrice.Value, Language.Get("PriceBelow"));
+                            }
+                        }
+                        else
+                        {
+                            newAction = "hold";
+                            if (newAction != lastAction)
+                            {
+                                lastAction = newAction;
+                            }
+                            Console.WriteLine(Language.Get("PriceHold"));
+                        }
+
+                }
+                // time in ms
+                await Task.Delay(backoffDelay * 1000);
             }
         }
     }

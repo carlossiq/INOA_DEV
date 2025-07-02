@@ -8,7 +8,8 @@ namespace StockQuoteAlert.Models
         public SmtpConfig? Smtp { get; set; }
         public List<string>? Recipients { get; set; }
         public string? Language { get; set; }
-        public string? TwelveDataApiKey { get; set; }
+        public string? BrapiToken { get; set; }
+
     }
 
     public class SmtpConfig

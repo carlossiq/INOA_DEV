@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -9,27 +10,34 @@ namespace StockQuoteAlert.Services
     {
         private static readonly HttpClient httpClient = new();
 
-        public static async Task<double?> GetCurrentPrice(string symbol, string apiKey)
+        public static async Task<double?> GetCurrentPrice(string symbol, string token)
         {
-            if (string.IsNullOrWhiteSpace(symbol) || string.IsNullOrWhiteSpace(apiKey))
+            if (string.IsNullOrWhiteSpace(symbol) || string.IsNullOrWhiteSpace(token))
                 return null;
 
-            string url = $"https://api.twelvedata.com/price?symbol={symbol}&apikey={apiKey}";
+            string url = $"https://brapi.dev/api/quote/{symbol}?token={token}&range=1d&interval=1d";
 
             try
             {
                 HttpResponseMessage response = await httpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode();
+                if (response.StatusCode == HttpStatusCode.TooManyRequests)
+                {
+                    await Task.Delay(5 * 60 * 1000);
+                    return null;
+                }
 
                 string json = await response.Content.ReadAsStringAsync();
-
                 using JsonDocument doc = JsonDocument.Parse(json);
-                if (doc.RootElement.TryGetProperty("price", out var priceElement))
+                var root = doc.RootElement;
+
+                if (root.TryGetProperty("results", out var results) && results.GetArrayLength() > 0)
                 {
-                    string? priceString = priceElement.GetString();
-                    if (priceString != null && double.TryParse(priceString, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double price))
+                    var asset = results[0];
+
+                    if (asset.TryGetProperty("regularMarketPrice", out var priceElement))
                     {
-                        return price;
+                        return priceElement.GetDouble();
                     }
                 }
 
@@ -37,7 +45,7 @@ namespace StockQuoteAlert.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao consultar API da Twelve Data: {ex.Message}");
+                Console.WriteLine($"{ex.Message}");
                 return null;
             }
         }

@@ -1,0 +1,7 @@
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.exe
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\publish\config.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\publish\Templates\EmailTemplate.html
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.dll
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.deps.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.runtimeconfig.json
+C:\Users\carlo\OneDrive\Documentos\GitHub\INOA_DEV\stock-quote-alert\bin\Release\net9.0\win-x64\publish\stock-quote-alert.pdb
